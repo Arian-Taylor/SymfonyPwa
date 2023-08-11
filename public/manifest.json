@@ -1,0 +1,22 @@
+{
+    "name": "Symfony PWA",
+    "short_name": "Sf PWA",
+    "start_url": "/tests/webpack",
+    "description": "Test Progressive Web App (PWA) avec Symfony",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#FFFFFF",
+    "orientation": "portrait",
+    "icons": [
+    {
+        "src": "/assets/icons/icon-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192",
+        "purpose": "maskable"
+    },
+    {
+        "src": "/assets/icons/icon-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+    }]
+}

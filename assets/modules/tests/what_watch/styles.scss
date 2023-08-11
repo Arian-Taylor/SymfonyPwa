@@ -1,0 +1,312 @@
+@mixin propriete_x($propriete, $first_value, $max_widths_values) {
+  @if $first_value {
+    #{$propriete}: $first_value;
+  }
+
+  @each $max_width, $value in $max_widths_values {
+    @if $value {
+      @media (max-width: $max_width) {
+        #{$propriete}: $value;
+      }
+    }
+  }
+}
+
+body {
+  background: black;
+  color: white;
+}
+
+.what_watch {
+  background: black;
+  color: white;
+  text-align: center;
+  font-family: "font-1", cursive;
+
+  * {
+    list-style-type: none;
+  }
+
+  h1 {
+    @include propriete_x(
+      font-size,
+      45px,
+      (
+        "1920px": 2.344vw,
+        "991px": 3.532vw,
+        "768px": 4.297vw,
+        "480px": 6.25vw,
+      )
+    );
+
+    @include propriete_x(
+      letter-spacing,
+      3px,
+      (
+        "1920px": 0.156vw,
+        "991px": 0.202vw,
+        "768px": 0.26vw,
+        "480px": 0.417vw,
+      )
+    );
+
+    @include propriete_x(
+      margin,
+      40px 10px,
+      (
+        "1920px": 2.083vw 0.521vw,
+        "991px": 3.128vw 0.807vw,
+        "768px": 3.776vw 0.911vw,
+        "480px": 5.625vw 1.458vw,
+      )
+    );
+  }
+
+  input {
+    border: none;
+    cursor: pointer;
+    font-family: font-1, cursive;
+    font-size: 1.2rem;
+    outline: none;
+    text-align: center;
+
+    @include propriete_x(
+      border-radius,
+      25px 25px 0 0,
+      (
+        "1920px": 1.302vw 1.302vw 0 0,
+        "991px": 1.917vw 1.917vw 0 0,
+        "768px": 2.344vw 2.344vw 0 0,
+        "480px": 3.542vw 3.542vw 0 0,
+      )
+    );
+
+    @include propriete_x(
+      margin,
+      3px 0,
+      (
+        "1920px": 0.156vw 0,
+        "991px": 0.202vw 0,
+        "768px": 0.26vw 0,
+        "480px": 0.417vw 0,
+      )
+    );
+
+    @include propriete_x(
+      padding,
+      10px 0,
+      (
+        "1920px": 0.521vw 0,
+        "991px": 0.807vw 0,
+        "768px": 0.911vw 0,
+        "480px": 1.458vw 0,
+      )
+    );
+
+    @include propriete_x(
+      width,
+      300px,
+      (
+        "1920px": 15.469vw,
+        "991px": 40vw,
+        "768px": 60vw,
+        "480px": 100%,
+      )
+    );
+  }
+
+  input::placeholder {
+    text-align: center;
+
+    @include propriete_x(
+      font-size,
+      20px,
+      (
+        "1920px": 1.042vw,
+        "991px": 1.514vw,
+        "768px": 1.953vw,
+        "480px": 2.708vw,
+      )
+    );
+  }
+
+  input[type="submit"] {
+    background: rgb(177, 176, 176);
+    transition: 0.3s ease;
+    cursor: pointer;
+
+    @include propriete_x(
+      border-radius,
+      0 0 25px 25px,
+      (
+        "1920px": 0 0 1.302vw 1.302vw,
+        "991px": 0 0 1.917vw 1.917vw,
+        "768px": 0 0 2.344vw 2.344vw,
+        "480px": 0 0 3.542vw 3.542vw,
+      )
+    );
+  }
+
+  input[type="submit"]:hover {
+    background: rgb(46, 46, 46);
+    color: white;
+    letter-spacing: 1px;
+  }
+
+  img {
+    object-fit: cover;
+    width: 40%;
+
+    @include propriete_x(
+      max-width,
+      250px,
+      (
+        "1920px": 12.917vw,
+        "991px": 19.475vw,
+        "768px": 23.828vw,
+        "480px": 35vw,
+      )
+    );
+  }
+
+  .result-container {
+    margin: 0 auto;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: auto;
+
+    @include propriete_x(
+      max-width,
+      1400px,
+      (
+        "1920px": 72.188vw,
+        "991px": 100vw,
+        "768px": 100vw,
+        "480px": 100vw,
+      )
+    );
+  }
+
+  li {
+    @include propriete_x(
+      max-width,
+      calc(33.3333% - (10px * 2)),
+      (
+        "1920px": calc(33.3333% - (0.521vw * 2)),
+        "991px": calc(50% - (0.807vw * 2)),
+        "768px": 100%,
+        "480px": 100%,
+      )
+    );
+
+    @include propriete_x(
+      min-width,
+      calc(33.3333% - (10px * 2)),
+      (
+        "1920px": calc(33.3333% - (0.521vw * 2)),
+        "991px": calc(50% - (0.807vw * 2)),
+        "768px": 100%,
+        "480px": 100%,
+      )
+    );
+
+    @include propriete_x(
+      border,
+      2px solid rgb(206, 206, 206),
+      (
+        "1920px": 0.104vw solid rgb(206, 206, 206),
+        "991px": 0.202vw solid rgb(206, 206, 206),
+        "768px": 0.13vw solid rgb(206, 206, 206),
+        "480px": 0.208vw solid rgb(206, 206, 206),
+      )
+    );
+
+    @include propriete_x(
+      border-radius,
+      10px,
+      (
+        "1920px": 0.521vw,
+        "991px": 0.807vw,
+        "768px": 0.911vw,
+        "480px": 1.458vw,
+      )
+    );
+
+    @include propriete_x(
+      padding,
+      20px,
+      (
+        "1920px": 1.042vw,
+        "991px": 1.514vw,
+        "768px": 1.953vw,
+        "480px": 2.708vw,
+      )
+    );
+
+    @include propriete_x(
+      margin,
+      10px,
+      (
+        "1920px": 0.521vw,
+        "991px": 0.807vw,
+        "768px": 0.911vw,
+        "480px": 1.458vw 0,
+      )
+    );
+  }
+
+  h2 {
+    @include propriete_x(
+      margin,
+      10px 0 25px,
+      (
+        "1920px": 0.521vw 0 1.302vw,
+        "991px": 0.807vw 0 1.917vw,
+        "768px": 0.911vw 0 2.344vw,
+        "480px": 1.458vw 0 3.542vw,
+      )
+    );
+  }
+
+  .card-content {
+    display: grid;
+    grid-template-columns: 40% 60%;
+  }
+
+  .card-content img {
+    width: 90%;
+
+    @include propriete_x(
+      border-radius,
+      5px,
+      (
+        "1920px": 0.26vw,
+        "991px": 0.404vw,
+        "768px": 0.521vw,
+        "480px": 0.625vw,
+      )
+    );
+
+    @include propriete_x(
+      box-shadow,
+      -3px 3px 10px 3px #242323,
+      (
+        "1920px": -0.156vw 0.156vw 0.521vw 0.156vw #242323,
+        "991px": -0.202vw 0.202vw 0.807vw 0.202vw #242323,
+        "768px": -0.26vw 0.26vw 0.911vw 0.26vw #242323,
+        "480px": -0.417vw 0.417vw 1.458vw 0.417vw #242323,
+      )
+    );
+  }
+
+  .card-content p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+    overflow: hidden;
+  }
+}

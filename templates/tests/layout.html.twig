@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {# meta & link for PWA #}
+    <meta name="apple-mobile-web-app-status-bar" content="white">
+    <meta name="theme-color" content="white">
+    <link rel="manifest" href="{{asset('manifest.json')}}">
+    <link rel="shortcut icon" href="{{asset('assets/icons/icon-192x192.png')}}">
+    <link rel="apple-touch-icon" href="{{asset('assets/icons/icon-192x192.png')}}">
+    {# meta & link for PWA #}
+    {{ encore_entry_link_tags('layout', null, 'tests_config') }}
+    {% block stylesheets %}
+    {% endblock %}
+</head>
+
+<body>
+    {% include 'tests/nav_of_layout.html.twig' %}
+    {% block body %}{% endblock %}
+    {# script for PWA #}
+    <script src="{{asset('register-service-worker.js')}}"></script>
+    {# script for PWA #}
+    {{ encore_entry_script_tags('layout', null, 'tests_config') }}
+    {% block javascripts %}
+    {% endblock %}
+</body>
+
+</html>

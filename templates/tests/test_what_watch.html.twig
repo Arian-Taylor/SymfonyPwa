@@ -1,0 +1,21 @@
+{% extends 'tests/layout.html.twig' %}
+{% block title %}Hello TestsController!{% endblock %}
+{% block body %}
+<div class="container text-center what_watch">
+    <h1 class="title">What Watch</h1>
+    <form id="searchForm">
+        <input type="text" placeholder="Entrez le titre d'un film" id="searchInput"><br>
+        <input type="submit" value="Rechercher">
+    </form>
+    <div class="result-container">
+        <ul id="result"></ul>
+    </div>
+    <img src="{{asset('assets/icons/icon-512x512.png')}}" alt="logo">
+</div>
+{% endblock %}
+{% block stylesheets %}
+{{ encore_entry_link_tags('what_watch', null, 'tests_config') }}
+{% endblock %}
+{% block javascripts %}
+{{ encore_entry_script_tags('what_watch', null, 'tests_config') }}
+{% endblock %}
